@@ -1,8 +1,0 @@
-
-\.vagrant/
-
-*.pyc
-
-*.sqlite3
-
-ubuntu-bionic-18\.04-cloudimg-console\.log
