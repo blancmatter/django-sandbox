@@ -7,19 +7,7 @@ from django.urls import reverse
 from .models import Question, Choice
 
 
-def detail(request, question_id):
-    try:
-        question = Question.objects.get(pk=question_id)
-    except Question.DoesNotExist:
-        raise Http404("Question %s does not exist" % question_id)
-    
-    # or the above can be written in one line with a shotcut, but you lose the ability of custom message
-    #question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question':question})
 
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
@@ -39,10 +27,5 @@ def vote(request, question_id):
         
         
     
-    
-def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list':latest_question_list,}
-    return render(request,'polls/index.html',context)
 
 
