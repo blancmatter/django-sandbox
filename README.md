@@ -1,1 +1,1 @@
-mysite
+# django-sandbox
